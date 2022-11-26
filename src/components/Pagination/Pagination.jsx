@@ -54,7 +54,7 @@ pageRangeDisplayed={width<576?1:2}
 // onPageChange={onPageChange}
 
   />
-  //
+  
   <style jsx>
 {`
      a {
