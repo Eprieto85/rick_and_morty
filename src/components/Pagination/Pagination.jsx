@@ -1,18 +1,23 @@
 import React,{useState,useEffect}  from 'react'
 import ReactPaginate from 'react-paginate';
 
+//Trae desde el App.js por Hook datos de las paginas
 const Pagination = ({ info,pageNumber,setPageNumber }) => {
 
+//permite renderizar el ancho de de la barra de paginacion
 const [width, setWidth]=useState(window.innerWidth);
 const updateDimensions=()=>{
   setWidth(window.innerWidth);
 };
+//useEffect usado para 
 useEffect(()=>{
   window.addEventListener('resize', updateDimensions);
   return ()=>window.removeEventListener('resize', updateDimensions);
 },[]);
 
-  // let next=()=>{//Ya no se usara esta forma de paginación
+
+//Ya no se usara esta forma de paginación
+  // let next=()=>{
     //     setPageNumber((x)=>x+1)
     // };
     // let prev=()=>{
@@ -25,8 +30,6 @@ useEffect(()=>{
 //   //   <div onClick={prev} className="button btn btn-primary">Prev</div>
 //   //   <div onClick={next} className="button btn btn-primary">Next</div>
 //   // </div>
-
-  
 //   );
 
 return (
@@ -51,6 +54,7 @@ pageRangeDisplayed={width<576?1:2}
 // onPageChange={onPageChange}
 
   />
+  //
   <style jsx>
 {`
      a {

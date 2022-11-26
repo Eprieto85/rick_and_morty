@@ -1,9 +1,11 @@
 import './App.css';
+//Aqui Importe los React hooks y Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import React, { useState, useEffect } from 'react'; 
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+// Estoy importando los modulos a medida q los voy necesitando
 // import Card from './components/Card/Card.jsx';
 import Cards from './components/Cards/Cards.jsx';
 // import Search from './components/Card/SearchBar.jsx';
@@ -20,15 +22,21 @@ import Form from './components/Form/Form.jsx';
 function App() {
   let [pageNumber, setPageNumber] = useState(1);                                           //nuevo
   let [search, setSearch]=useState("");          //nuevo
+// el "fetcedData" almacena los datos dela consola usando el hook "useState"  y almacena en la variable, tenemos una clave de funcion para cambiar los datos de la var con el hook "useEffect"
   let [fetchedData, updateFetchedData]=useState([]);                                      //nuevo
+  // let api es la url desde dond llamo todos los objetos , esta ira agregando objetos segun requiera
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;              //nuevo &status=${status}&gender=${gender}&species=${species}
+// desestructuramos "info y result" de la var "fetchedData" y asi, almacenara en el "api" y con "updateFetchedData" podremos cambiar datos cuando queramos
   let { info, results } = fetchedData;                                                   //nuevo
 
   // let [status, setStatus]=useState("");          //nuevo
   // let [gender, setGender]=useState("");          //nuevo
   // let [species, setSpecies]=useState("");          //nuevo
 
+  //Ahora con el hook "UseEffects" pedimos los datos... vamos a ingresar dentro de este el async para recargar
   useEffect(() => {
+    // el observador de "api" permite recargar los cambios q se presentenen la variable "api"
+    // la funcion "async"obtiene los datos sin procesar y convierte a "JSON"
     (async function () {
       let data = await fetch(api).then((res) => res.json());
       updateFetchedData(data);
@@ -83,6 +91,7 @@ function hideButton(){
 }
 
   return (
+    // Este es mi "return statement" elimine todo y creo desde cero
     <div className="App text-center ubuntu" style={{ padding: '25px' }}>
       <h1 className="text-center ubuntu my-1">Rick & <span className='text-primary'>Morty</span>  </h1>     
       
@@ -101,6 +110,7 @@ function hideButton(){
     <Filters />
   <div className="col-8">
     <div className='row'>
+{/*Ya con el componente importado, usamos Cards para mostrar las tarjetas*/}
 <Cards results={results}/>
 
     </div>
