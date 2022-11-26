@@ -1,5 +1,7 @@
 // import Card from '../Card/Card';
 
+
+// Este era un componente q a traves de busqeda traia una sola tarjeta, pero lo vamos cambiar para dar un mejor contexto
 // export default function Cards(props) {
    // const { characters, onClose } = props;
 
@@ -22,16 +24,19 @@
 // }
 
 import React from 'react'
+// importamos "styles" ahora nuestras tardjetas tienen mejor aspecto
 import styles from './Cards.module.scss';
-
+// desestructuramos los datos q vienen de "App.js"
 const Cards = ({results}) => {
+// display nos va mostrar todas las tarjetas, el if else nos verifica q no hay datos vacios 
    let display;
    console.log(results)
-
+// asignamos el "results" ahora nos va a crear las tarjetas con la info q pedimos
 if(results){
    display = results.map((x)=>{
       let {id,name,image,location,status}=x;
       return (
+//El className llama algunos estilos nativos qgregados en index.css y del module.scss
          <div key={id} className="col-lg-4 mb-4 col-md-6 col-sm-6 col-12 position-relative text-dark"> 
          {/* mb-4 agregado por el hindu */}
             <div className={styles.cards}>
@@ -44,6 +49,7 @@ if(results){
             </div>
          </div>
       </div>
+{/* Este codigo nos ayuda a traer info del personaje de cada Card, y el className le un aspecto bonito y ordenado */}
 {(()=>{
    if(status ==="Dead"){
       return (
