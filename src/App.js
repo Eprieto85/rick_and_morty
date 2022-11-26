@@ -36,12 +36,15 @@ function App() {
     })();
   }, [api]);
 
+  //Declaración personaje y acceso login
   const [characters, setCharacters]=useState([]);
   const [access, setAccess]=useState(false);
 
+  //Declaración Login
 const username="prueba@gmail.com";
 const password="Password1";
 
+//Declaración barra del navegador
 const location=useLocation();
 const navigate=useNavigate();
 
@@ -57,6 +60,7 @@ function login(userData){
   }
 }
 
+//Función fetch barra busqueda en search.jsx
     function onSearch(character) {
       fetch(`https://rickandmortyapi.com/api/character/${character}`)
          .then((response) => response.json())
@@ -69,6 +73,7 @@ function login(userData){
          });
    }
 
+   
 function  onClose(id){
   setCharacters(oldState=>oldState.filter(char=>char.id !== id));
 }
