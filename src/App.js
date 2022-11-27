@@ -94,7 +94,7 @@ function hideButton(){
     // Este es mi "return statement" elimine todo y creo desde cero
     <div className="App text-center ubuntu" style={{ padding: '25px' }}>
       <h1 className="text-center ubuntu my-1">Rick & <span className='text-primary'>Morty</span>  </h1>     
-      
+      <p>Aun estoy haciendo cambios!! Gracias por entender!! </p>
       <div className="logOff" onClick={hideButton} >
       <button id="logOut" onClick={()=>navigate("/")} style={{display:"none"?"none":"none"}}>LogOut</button>     
        </div>
