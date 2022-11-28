@@ -23,17 +23,19 @@ function App() {
 // Vamos a crear la barra de busqueda, usamos 2 hooks "useState" ahora tenemos clave de busqueda y numero de pagina
   let [pageNumber, setPageNumber] = useState(1);                                           //nuevo
   let [search, setSearch]=useState("");          //nuevo
-// el "fetcedData" almacena los datos dela consola usando el hook "useState"  y almacena en la variable, tenemos una clave de funcion para cambiar los datos de la var con el hook "useEffect"
+// voy a agregar el array para filtro de los 3 "useState" del hooks almacena estado, genero y especie, se agregan al "api" con =${}
+  let [status, setStatus]=useState("");          //nuevo
+  let [gender, setGender]=useState("");          //nuevo
+  let [species, setSpecies]=useState("");          //nuevo
+
+
+  // el "fetcedData" almacena los datos dela consola usando el hook "useState"  y almacena en la variable, tenemos una clave de funcion para cambiar los datos de la var con el hook "useEffect"
   let [fetchedData, updateFetchedData]=useState([]);                                      //nuevo
   // let api es la url desde dond llamo todos los objetos , esta ira agregando objetos segun requiera
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;              //nuevo &status=${status}&gender=${gender}&species=${species}
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`;              //nuevo 
 // desestructuramos "info y result" de la var "fetchedData" y asi, almacenara en el "api" y con "updateFetchedData" podremos cambiar datos cuando queramos
   let { info, results } = fetchedData;                                                   //nuevo
 
-// los 3 "useState" del hooks almacena estado, genero y especie, se agregan al "api" con =${}
-  // let [status, setStatus]=useState("");          //nuevo
-  // let [gender, setGender]=useState("");          //nuevo
-  // let [species, setSpecies]=useState("");          //nuevo
 
   //Ahora con el hook "UseEffects" pedimos los datos... vamos a ingresar dentro de este el async para recargar
   useEffect(() => {
@@ -102,14 +104,14 @@ function hideButton(){
        </div>
 <br/>
         <img className='imgHead' src='https://1000marcas.net/wp-content/uploads/2022/04/Rick-and-Morty.png' alt="" /><br/>
-      
+
+
       <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/>
       <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
-        
 
 <div className="container">
   <div className="row">
-    <Filters />
+    <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/>
   <div className="col-8">
     <div className='row'>
 {/*Ya con el componente importado, usamos Cards para mostrar las tarjetas*/}
@@ -120,11 +122,7 @@ function hideButton(){
   </div>
 
 </div>
-     
-<Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
-
-
-
+      
 <div>
 {location.pathname==="/"?null:<Navbar onSearch={onSearch} />}
     <Routes>
@@ -134,6 +132,10 @@ function hideButton(){
       <Route path="/detail/:detailId" element={<Detail />}/>
     </Routes>    
     </div>
+        
+     
+<Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+
 
         
  
@@ -145,9 +147,7 @@ function hideButton(){
     <div className='row'>
       {/* <div className="col-3">Componente Filtro sera ubicado aqui */}
       {/* dentro del filters agregaremos datos q llamamos desde el componente */}
-      <Filters 
-      // 
-      />
+      <Filters setSpecies={setSpecies}setGender={setGender} setStatus={setStatus} setPageNumber={setPageNumber}/>
       {/* </div> */}
           <div className="col-lg-8 col-12">
               <div className="row">{/*Componente tarjeta sera ubicado aquí */}
