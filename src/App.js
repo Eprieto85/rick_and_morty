@@ -20,6 +20,7 @@ import Form from './components/Form/Form.jsx';
 
 
 function App() {
+// Vamos a crear la barra de busqueda, usamos 2 hooks "useState" ahora tenemos clave de busqueda y numero de pagina
   let [pageNumber, setPageNumber] = useState(1);                                           //nuevo
   let [search, setSearch]=useState("");          //nuevo
 // el "fetcedData" almacena los datos dela consola usando el hook "useState"  y almacena en la variable, tenemos una clave de funcion para cambiar los datos de la var con el hook "useEffect"
@@ -29,6 +30,7 @@ function App() {
 // desestructuramos "info y result" de la var "fetchedData" y asi, almacenara en el "api" y con "updateFetchedData" podremos cambiar datos cuando queramos
   let { info, results } = fetchedData;                                                   //nuevo
 
+// los 3 "useState" del hooks almacena estado, genero y especie, se agregan al "api" con =${}
   // let [status, setStatus]=useState("");          //nuevo
   // let [gender, setGender]=useState("");          //nuevo
   // let [species, setSpecies]=useState("");          //nuevo
@@ -137,12 +139,15 @@ function hideButton(){
  
 {/* codigo nuevo */}
 <h1 className="text-center mb-3">Personajes{/* Personajes */}</h1>
-{/* Barra busqueda */}
+{/* creamos el componente de Barra busqueda */}
  <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
   <div className="container">
     <div className='row'>
       {/* <div className="col-3">Componente Filtro sera ubicado aqui */}
-      <Filters />
+      {/* dentro del filters agregaremos datos q llamamos desde el componente */}
+      <Filters 
+      // 
+      />
       {/* </div> */}
           <div className="col-lg-8 col-12">
               <div className="row">{/*Componente tarjeta sera ubicado aquí */}

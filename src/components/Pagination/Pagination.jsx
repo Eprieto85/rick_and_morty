@@ -1,7 +1,7 @@
 import React,{useState,useEffect}  from 'react'
 import ReactPaginate from 'react-paginate';
 
-//Trae desde el App.js por Hook datos de las paginas
+//desestructura las propiedades
 const Pagination = ({ info,pageNumber,setPageNumber }) => {
 
 //permite renderizar el ancho de de la barra de paginacion
@@ -9,7 +9,7 @@ const [width, setWidth]=useState(window.innerWidth);
 const updateDimensions=()=>{
   setWidth(window.innerWidth);
 };
-//useEffect usado para 
+//useEffect usado para adaptar el tamaño de la barra paginación
 useEffect(()=>{
   window.addEventListener('resize', updateDimensions);
   return ()=>window.removeEventListener('resize', updateDimensions);
@@ -17,7 +17,7 @@ useEffect(()=>{
 
 
 //Ya no se usara esta forma de paginación
-  // let next=()=>{
+  // let next=()=>{   // con este codigo cambiamos la paginacion
     //     setPageNumber((x)=>x+1)
     // };
     // let prev=()=>{
@@ -34,6 +34,7 @@ useEffect(()=>{
 
 return (
 <>
+{/* usamos los estilos basicos con react-paginate */}
 <ReactPaginate 
   className='pagination justify-content-center my-4 gap-4'
   nextLabel="Sig"
@@ -47,14 +48,14 @@ return (
     setPageNumber(data.selected+1);
   }}
   pageCount={info?.pages}
-
+// funcionalidades el react-paginate
 forcePageChange={pageNumber===1?0:pageNumber-1}
 marginPagesDisplayed={width<576?1:2}
 pageRangeDisplayed={width<576?1:2}
 // onPageChange={onPageChange}
 
   />
-  
+  {/* estamos dentro de la declaración de devolución donde agregamos estilos especificos con jsx */}
   <style jsx>
 {`
      a {
