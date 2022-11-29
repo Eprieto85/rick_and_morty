@@ -17,33 +17,13 @@ import Search from './components/Search/Search.jsx';
 import About from './Pages/About/About';
 import Detail from './Pages/Detail/Detail';
 import Form from './Pages/Form/Form';
-import Episodes from './Pages/Episodes';
-import Location from './Pages/Location';
 
 // vamos a crear de nuevo la funcion App y dentro la declaración de devolucíon
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/:id" element={<CardDetails />} /> */}
-        <Route path="/characters" element={<Home />} />
-
-
-        <Route path="/episodes" element={<Episodes />} />
-        {/* <Route path="/episodes/:id" element={<CardDetails />} /> */}
-
-        <Route path="/location" element={<Location />} />
-        {/* <Route path="/location/:id" element={<CardDetails />} /> */}
-
-            <Route path="/detail/:detailId" element={<Detail />}/>
-            <Route path="/about" element={<About />}/>
-      </Routes>
-    </Router>
-  );
+return (
+  <Router ><div><Navbar/></div><Routes><Route path='/' element={<Home/>}/></Routes></Router>
+  
+);
 }
 
 // le quitamos el function App a esta parte del codio y lo vamos a convertir en const Home
@@ -125,7 +105,7 @@ function hideButton(){
   return (
     // Este es mi "return statement" elimine todo y creo desde cero style={{ padding: '25px' }}->se borro del div 
     <div className="App text-center ubuntu">
- {/* <Navbar/> Ya no usare esta Nava aqui */}
+ <Navbar/>
   
   <h1 className="text-center ubuntu my-1">Aun estoy haciendo cambios!! 
   <span className='text-primary'>Gracias por entender!!</span>  </h1>     
@@ -142,11 +122,11 @@ function hideButton(){
 
 <div className="container">
   <div className="row">
-    {/* <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/> */}
+    <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/>
   <div className="col-8">
     <div className='row'>
 {/*Ya con el componente importado, usamos Cards para mostrar las tarjetas*/}
-{/* <Cards results={results}/> */}
+<Cards results={results}/>
 
     </div>
   </div>
@@ -154,19 +134,18 @@ function hideButton(){
 
 </div>
       
-{/* <div>
+<div>
 {location.pathname==="/"?null:<Navbar onSearch={onSearch} />}
     <Routes>
       <Route path="/" element={<Form login={login}  />}></Route>
-      <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/>
-
-      <Route path="/about" element={<About />}/>      //ya lo tengo
-      <Route path="/detail/:detailId" element={<Detail />}/>    //ya lo tengo
+      {/* <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/> */}
+      <Route path="/about" element={<About />}/>
+      <Route path="/detail/:detailId" element={<Detail />}/>
     </Routes>    
-    </div> */}
+    </div>
         
      
-{/* <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/> */}
+<Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
 
 
         
@@ -192,6 +171,6 @@ function hideButton(){
     </div>          //4
   );
 
-};
+}
 
 export default App;
