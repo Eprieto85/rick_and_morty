@@ -17,13 +17,6 @@ code {
     monospace;
 }
 
-.imgHead {
-  object-fit: cover;
-  object-position: center;
-  width: 26%;
-  height: 50%;
-  /* height: 75px; */
-}
 
 .logOut { 
   display:"none"

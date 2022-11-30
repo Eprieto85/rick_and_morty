@@ -23,11 +23,14 @@
 //    );
 // }
 
-import React from 'react'
+import React from 'react';
 // importamos "styles" ahora nuestras tardjetas tienen mejor aspecto
 import styles from './Cards.module.scss';
+// import para llamar el cambio en Details
+import {Link} from 'react-router-dom';
+
 // desestructuramos los datos q vienen de "App.js"
-const Cards = ({results}) => {
+const Cards = ({results,page}) => {
 // display nos va mostrar todas las tarjetas, el if else nos verifica q no hay datos vacios 
    let display;
    console.log(results)
@@ -37,7 +40,7 @@ if(results){
       let {id,name,image,location,status}=x;
       return (
 //El className llama algunos estilos nativos qgregados en index.css y del module.scss
-         <div key={id} className="col-lg-4 mb-4 col-md-6 col-sm-6 col-12 position-relative text-dark"> 
+         <Link style={{textDecoration:"none"}} to={`${page}${id}`} key={id} className="col-lg-4 col-md-6 col-12 mb-4 position-relative text-dark"> 
          {/* mb-4 agregado por el hindu */}
             <div className={styles.cards}>
                <img src={image} alt="" className={`${styles.img} img-fluid`}/>
@@ -73,7 +76,7 @@ if(results){
       );
    }
 })()}
-         </div>
+         </Link>
       );
    });
 }else{

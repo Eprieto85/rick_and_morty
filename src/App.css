@@ -3,3 +3,11 @@
     font-weight: bold;
     color:#0b5ed7 !important;
 }
+.imgHead {
+    object-fit: cover;
+    object-position: center;
+    width: 16%;
+    height: 38%;
+    /* height: 75px; */
+  }
+  

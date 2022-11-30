@@ -34,12 +34,12 @@ function App() {
 
 
         <Route path="/episodes" element={<Episodes />} />
-        {/* <Route path="/episodes/:id" element={<CardDetails />} /> */}
+        <Route path="/episodes/:id" element={<Detail />} />
 
         <Route path="/location" element={<Location />} />
-        {/* <Route path="/location/:id" element={<CardDetails />} /> */}
+        <Route path="/location/:id" element={<Detail />} />
 
-            <Route path="/detail/:detailId" element={<Detail />}/>
+            <Route path="/:detailId" element={<Detail />}/>
             <Route path="/about" element={<About />}/>
       </Routes>
     </Router>
@@ -133,12 +133,9 @@ function hideButton(){
       <div className="logOff" onClick={hideButton} >
       <button id="logOut" onClick={()=>navigate("/")} style={{display:"none"?"none":"none"}}>LogOut</button>     
        </div>
-<br/>
-        
 
-
-      <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/>
-      <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
+      {/* <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/> */}
+      {/* <Search setPageNumber={setPageNumber}  setSearch={setSearch}/> */}
 
 <div className="container">
   <div className="row">
@@ -172,7 +169,7 @@ function hideButton(){
         
  
 {/* codigo nuevo */}
-<h1 className="text-center mb-3">Personajes{/* Personajes */}</h1>
+<h1 className="text-center mb-4">Personajes{/* Personajes */}</h1>
 {/* creamos el componente de Barra busqueda */}
  <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
   <div className="container">
@@ -181,9 +178,9 @@ function hideButton(){
       {/* dentro del filters agregaremos datos q llamamos desde el componente */}
       <Filters setSpecies={setSpecies}setGender={setGender} setStatus={setStatus} setPageNumber={setPageNumber}/>
       {/* </div> */}
-          <div className="col-8">
+          <div className="col-lg-8 col-12">
               <div className="row">{/*Componente tarjeta sera ubicado aquí */}
-              <Cards results={results}/>
+              <Cards pages="/" results={results}/>
   </div>
     <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </div>          {/* 1 */}
