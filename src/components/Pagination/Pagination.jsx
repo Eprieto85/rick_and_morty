@@ -5,8 +5,8 @@ import ReactPaginate from 'react-paginate';
 const Pagination = ({ info,pageNumber,setPageNumber }) => {
 
 //permite renderizar el ancho de de la barra de paginacion
-const [width, setWidth]=useState(window.innerWidth);
-const updateDimensions=()=>{
+let [width, setWidth]=useState(window.innerWidth);
+let updateDimensions=()=>{
   setWidth(window.innerWidth);
 };
 //useEffect usado para adaptar el tamaño de la barra paginación
@@ -34,7 +34,23 @@ useEffect(()=>{
 
 return (
 <>
-{/* usamos los estilos basicos con react-paginate */}
+  <style jsx>
+  {`
+     a {
+       color: white; text-decoration: none;
+     }
+     @media (max-width: 768px) {
+       .pagination {font-size: 12px}
+       
+       .next,
+       .prev {display: none}
+      }
+      @media (max-width: 768px) {
+       .pagination {font-size: 14px}
+     }
+   `}
+   </style>
+   {/* usamos los estilos basicos con react-paginate */}
 <ReactPaginate 
   className='pagination justify-content-center my-4 gap-4'
   nextLabel="Sig"
@@ -56,26 +72,8 @@ pageRangeDisplayed={width<576?1:2}
 
   />
   {/* estamos dentro de la declaración de devolución donde agregamos estilos especificos con jsx */}
-  <style jsx>
-{`
-     a {
-       color: white; text-decoration: none;
-     }
-     @media (max-width: 768px) {
-       .pagination {font-size: 12px}
-
-       .next,
-       .prev {display: none}
-     }
-     @media (max-width: 768px) {
-       .pagination {font-size: 14px}
-     }
-   `}
-   </style>
   </>
 );
-
-
 };
 
 export default Pagination

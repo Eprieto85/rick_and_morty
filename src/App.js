@@ -29,9 +29,10 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/:id" element={<CardDetails />} /> */}
-        <Route path="/characters" element={<Home />} />
+        <Route path="/:id" element={<Detail />} />
 
+        <Route path="/characters" element={<Home />} />
+        <Route path="/characters/:id" element={<Detail />} />        
 
         <Route path="/episodes" element={<Episodes />} />
         <Route path="/episodes/:id" element={<Detail />} />
@@ -39,7 +40,8 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/location/:id" element={<Detail />} />
 
-            <Route path="/:detailId" element={<Detail />}/>
+        
+            <Route path="/detail/:id" element={<Detail />}/>
             <Route path="/about" element={<About />}/>
       </Routes>
     </Router>
@@ -180,7 +182,7 @@ function hideButton(){
       {/* </div> */}
           <div className="col-lg-8 col-12">
               <div className="row">{/*Componente tarjeta sera ubicado aquí */}
-              <Cards pages="/" results={results}/>
+              <Cards pages="/characters/" results={results}/>
   </div>
     <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </div>          {/* 1 */}

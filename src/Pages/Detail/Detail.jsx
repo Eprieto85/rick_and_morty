@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react';      
-import { useParams} from "react-router-dom";    //useNavigate 
+import { useParams,useNavigate} from "react-router-dom";    // 
+import styles from './Details.module.scss';
 
 // export default function Detail(){
 // const { detailId }=useParams();
@@ -43,6 +44,10 @@ const Detail = () => {
     let { id }=useParams();
     let [fetchedData, updateFetchedData]=useState([]);
     let {name,image,location,origin,gender,species,status,type}=fetchedData;
+    const navigate = useNavigate();
+    const tab =<>&nbsp;&nbsp;&nbsp;</>;
+    const tabd=<>&nbsp;</>;
+    const tabt=<>&nbsp;&nbsp;</>;
 
     let api=`https://rickandmortyapi.com/api/character/${id}`;
     useEffect(() => {
@@ -57,9 +62,9 @@ const Detail = () => {
 
     
   return (
-        <div className='container d-flex justify-content-center'>
+        <div className='container d-flex justify-content-center mb-5'>
              <div className='d-flex flex-column gap-3'>
-                 {/* <button onClick={()=>navigate("/home")}>Volver</button> */}
+                 <button onClick={()=>navigate("/")} className={`${styles.btn} btn btn-primary fs-5`}>Volver</button>
              <h1 className='text-center'>NOMBRE:  {name}</h1>
              <img className='img-fluid' src={image} alt="" />
 
@@ -73,11 +78,11 @@ const Detail = () => {
    }
 })()}
     <div className='content'> 
-        <div className=''><span className='col-lg-4 fw-bold'>GENERO:</span><div className='col-3'>{gender}</div></div>
-        <div className=''><span className='fw-bold'>ESPECIE:  </span>{species}</div>
-        <div className=''><span className='fw-bold'>TYPE:     </span>{type===""?"Unknown":type}</div>
-        <div className=''><span className='fw-bold'>LOCATION: </span>{location?.name}</div>
-        <div className=''><span className='fw-bold'>ORIGIN:   </span>{origin?.name}</div>
+        <div className='d-flex'><span className='fw-bold'>GENDER: {tabt}</span>{tabt}{gender}</div>
+        <div className='d-flex'><span className='fw-bold'>SPECIE: {tabt}</span>{tabt}{tab}{species}</div>
+        <div className='d-flex'><span className='fw-bold'>TYPE: {tab}{tabd}</span>{tab}{tab}{type===""?"Unknown":type}</div>
+        <div className='d-flex'><span className='fw-bold'>LOCATION: </span>{tabt}{location?.name}</div>
+        <div className='d-flex'><span className='fw-bold'>ORIGIN: {tab}</span>{tab}{origin?.name}</div>
                 </div>
              </div>
          </div>
