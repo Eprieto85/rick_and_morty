@@ -43,12 +43,15 @@ if(results){
          <Link style={{textDecoration:"none"}} to={`${page}${id}`} key={id} className="col-lg-4 col-md-6 col-12 mb-4 position-relative text-dark"> 
          {/* mb-4 agregado por el hindu */}
             <div className={`${styles.cards} d-flex flex-column justify-content-center`}>
-               <img src={image} alt="" className={`${styles.img} img-fluid`}/>
+               <div className="cards2">
+
+      <img src={image} alt="" className={`${styles.img} img-fluid`}/>
                <div style={{padding:"10px"}} className="content">
             <div className="fs-4 fw-bold mb-4">{name}</div>
             <div className="">
                <div className="fs-6">Ultima ubicación</div>
                <div className="fs-5">{location.name}</div>
+</div>
             </div>
          </div>
       </div>

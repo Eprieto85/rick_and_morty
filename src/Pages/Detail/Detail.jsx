@@ -63,6 +63,7 @@ const Detail = () => {
     
   return (
         <div className='container d-flex justify-content-center mb-5'>
+          {/* Estoy en Pages/Detail */}
              <div className='d-flex flex-column gap-3'>
                  <button onClick={()=>navigate("/")} className={`${styles.btn} btn btn-primary fs-5`}>Volver</button>
              <h1 className='text-center'>NOMBRE:  {name}</h1>

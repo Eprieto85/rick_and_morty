@@ -1,5 +1,6 @@
 import React from "react";
 import { validation } from "./validation.js";
+import styles from './Form.module.css';
 
 export default function Form(props){
     const [userData,setUserData]=React.useState({
@@ -31,28 +32,46 @@ function handleSubmit(e){
     }
 
     return (
-    <div>
+        <section>
+    {/* <div> */}
+        <div className={`${styles.color}`}></div>
+        <div className={`${styles.color}`}></div>
+        <div className={`${styles.color}`}></div>
+        <div className={`${styles.box}`}>
+
+<div className={`${styles.square}`} style={{"--i":"0;"}}></div>
+<div className={`${styles.square}`} style={{"--i":"1;"}}></div>
+<div className={`${styles.square}`} style={{"--i":"2;"}}></div>
+<div className={`${styles.square}`} style={{"--i":"3;"}}></div>
+<div className={`${styles.square}`} style={{"--i":"4;"}}></div>
+
+            <div className={`${styles.containerLog}`}>
+                <div className={`${styles.form}`}>
+                    <h2 className="ubuntu d-flex mb-1">Login <span className='text-primary'> Form</span></h2>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="">Username:</label>
-        <input 
-        type="text" 
-        name="username" 
-        value={userData.username} 
-        onChange={handleInputChange} 
-        />
+        <div className={`${styles.inputBox}`}>
+        <label className='ubuntu d-flex justify-content-center fs-5 mb-1' htmlFor="">Username:</label>
+        <input type="text" placeholder="Username" name="username" value={userData.username} onChange={handleInputChange} />
+        </div>
 <p>{errors.username && errors.username}</p>
-
-        <label htmlFor="">Password:</label>
-        <input 
-        type="password" 
-        name="password" 
-        value={userData.password} 
-        onChange={handleInputChange} 
-        />
+<div className={`${styles.inputBox}`}>
+        <label className="ubuntu d-flex justify-content-center fs-5 mb-1" htmlFor="">Password:</label>
+        <input type="password" placeholder="Password" name="password" value={userData.password} onChange={handleInputChange} />
+        </div>
         <p>{errors.password && errors.password}</p>
-
-        <button type="submit">LOGIN</button>
+        <div className={`${styles.inputBox}`}>
+        {/* <button type="submit">LOGIN</button> */}
+        <input type="submit" value="Login"/>
+        </div>
+        <p className={`${styles.forget}`}> Forgot Password ? <a href="#h">Click Here</a></p>
+        <p className={`${styles.forget}`}> Don't have an account ? <a href="#h">Sign Up</a></p>
         </form>
-    </div>
+                </div>
+        </div>
+            </div>
+
+
+    {/* </div> */}
+        </section>
     );
 }

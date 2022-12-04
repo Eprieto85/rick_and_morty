@@ -9,6 +9,8 @@ else if(inputs.username.length > 35)
 else if(!regexEmail.test(inputs.username)) 
     errors.username="El nombre de usuario debe ser un email";
 
+
+    
 if(inputs.password.length < 6)
     errors.password="La contraseña es demasiado corta";
 else if(inputs.password.length >10)
