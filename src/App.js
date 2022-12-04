@@ -19,17 +19,23 @@ import Detail from './Pages/Detail/Detail';
 import Form from './Pages/Form/Form';
 import Episodes from './Pages/Episodes';
 import Location from './Pages/Location';
+import MyCards from './components/Cards/MyCards';
 
 // vamos a crear de nuevo la funcion App y dentro la declaración de devolucíon
 function App() {
+
+
   return (
-    <Router>
       <div className="App">
+    <Router>
         <Navbar />
-      </div>
+        {/* {location.pathname!=="/"&&<Navbar  />}        onSearch={onSearch} */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<Detail />} />
+      <Route path="/" element={<Form   />}/>
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/:id" element={<Detail />} /> */}
+
+        <Route path="/mycards" element={<MyCards />} />
 
         <Route path="/characters" element={<Home />} />
         <Route path="/characters/:id" element={<Detail />} />        
@@ -39,18 +45,22 @@ function App() {
 
         <Route path="/location" element={<Location />} />
         <Route path="/location/:id" element={<Detail />} />
-
         
-            <Route path="/detail/:id" element={<Detail />}/>
+            {/* <Route path="/detail/:id" element={<Detail />}/> */}
             <Route path="/about" element={<About />}/>
       </Routes>
     </Router>
+      </div>
   );
 }
 
 // le quitamos el function App a esta parte del codio y lo vamos a convertir en const Home
 const Home=()=>{
-// Vamos a crear la barra de busqueda, usamos 2 hooks "useState" ahora tenemos clave de busqueda y numero de pagina
+
+
+
+
+  // Vamos a crear la barra de busqueda, usamos 2 hooks "useState" ahora tenemos clave de busqueda y numero de pagina
   let [pageNumber, setPageNumber] = useState(1);                                           //nuevo
   let [search, setSearch]=useState("");          //nuevo
 // voy a agregar el array para filtro de los 3 "useState" del hooks almacena estado, genero y especie, se agregan al "api" con =${}
@@ -78,51 +88,67 @@ const Home=()=>{
     })();
   }, [api]);
 
-  //Declaración personaje y acceso login
-  const [characters, setCharacters]=useState([]);
+  
   const [access, setAccess]=useState(false);
 
   //Declaración Login
 const username="prueba@gmail.com";
 const password="Password1";
 
-//Declaración barra del navegador
-const location=useLocation();
+// //Declaración barra del navegador
+// const location=useLocation();
 const navigate=useNavigate();
 
 useEffect(()=>{
   !access && navigate('/ ');
-}, [access]);
+}, [access,navigate]);
 
-function login(userData){
-  if(userData.username === username && userData.password === password){
-    setAccess(true);
-    navigate("/home");
-    document.getElementById('logOut').style.display='block';
-  }
-}
+// function login(userData){
+//   if(userData.username === username && userData.password === password){
+//     setAccess(true);
+//     navigate("/home");
+//     document.getElementById('logOut').style.display='block';
+//   }
+// }
 
 //Función fetch barra busqueda en search.jsx
-    function onSearch(character) {
-      fetch(`https://rickandmortyapi.com/api/character/${character}`)
-         .then((response) => response.json())
-         .then((data) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               window.alert('No hay personajes con ese ID');
-            }
-         });
-   }
+  //   function onSearch(character) {   paso a MyCards
+  //     fetch(`https://rickandmortyapi.com/api/character/${character}`)
+  //        .then((response) => response.json())
+  //        .then((data) => {
+  //           if (data.name) {
+  //              setCharacters((oldChars) => [...oldChars, data]);
+  //           } else {
+  //              window.alert('No hay personajes con ese ID');
+  //           }
+  //        });
+  //  }
 
-   
-function  onClose(id){
-  setCharacters(oldState=>oldState.filter(char=>char.id !== id));
-}
 
-function hideButton(){
-  document.getElementById('logOut').style.display='none';
-}
+  
+//Declaración barra del navegador
+// const location=useLocation();
+//Declaración personaje y acceso login
+// const [characters, setCharacters]=useState([]);
+
+  // function  onClose(id){
+  //   setCharacters(oldState=>oldState.filter(char=>char.id !== id));
+  // }
+
+
+
+
+
+// function hideButton(){
+//   document.getElementById('logOut').style.display='none';
+// }
+
+// let containerTw=document.querySelector('.containerTw');
+// for(var i=0;i<=400;i++){
+//   let block=document.createElement('div');
+//   block.classList.add('block');
+//   containerTw.appendChild(block);
+// }
 
   return (
     // Este es mi "return statement" elimine todo y creo desde cero style={{ padding: '25px' }}->se borro del div 
@@ -132,45 +158,23 @@ function hideButton(){
   <h1 className="text-center ubuntu my-1">Aun estoy haciendo cambios!! 
   <span className='text-primary'>Gracias por entender!!</span>  </h1>     
   
-      <div className="logOff" onClick={hideButton} >
+      {/* <div className="logOff" onClick={hideButton} > */}
       <button id="logOut" onClick={()=>navigate("/")} style={{display:"none"?"none":"none"}}>LogOut</button>     
-       </div>
-
-      {/* <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/> */}
-      {/* <Search setPageNumber={setPageNumber}  setSearch={setSearch}/> */}
-
-<div className="container">
-  <div className="row">
-    {/* <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/> */}
-  <div className="col-8">
-    <div className='row'>
-{/*Ya con el componente importado, usamos Cards para mostrar las tarjetas*/}
-{/* <Cards results={results}/> */}
-
-    </div>
-  </div>
-  </div>
-
-</div>
+       {/* </div> */}
       
-{/* <div>
-{location.pathname==="/"?null:<Navbar onSearch={onSearch} />}
-    <Routes>
-      <Route path="/" element={<Form login={login}  />}></Route>
-      <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/>
+{/* <div> */}
+{/* {location.pathname==="/"?null:<Navbar onSearch={onSearch} />} */}
+    {/* <Routes> */}
+      {/* <Route path="/" element={<Form login={login}  />}></Route> */}
+      {/* <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/> */}
 
-      <Route path="/about" element={<About />}/>      //ya lo tengo
-      <Route path="/detail/:detailId" element={<Detail />}/>    //ya lo tengo
-    </Routes>    
-    </div> */}
-        
-     
-{/* <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/> */}
-
-
-        
+      {/* <Route path="/about" element={<About />}/>     
+      <Route path="/detail/:detailId" element={<Detail />}/> */}
+    {/* </Routes>     */}
+    {/* </div> */}
  
 {/* codigo nuevo */}
+
 <h1 className="text-center mb-4">Personajes{/* Personajes */}</h1>
 {/* creamos el componente de Barra busqueda */}
  <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>

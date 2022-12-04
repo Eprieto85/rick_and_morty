@@ -1,29 +1,85 @@
+/* eslint-disable no-use-before-define */
 import './App.css';
 //Aqui Importe los React hooks y Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import React, { useState, useEffect } from 'react'; 
 // esta linea se usara para direccionar navegadores con react-route-dom
-import { BrowserRouter as Router,Routes,Route,useLocation,useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router,Routes,Route,useNavigate } from 'react-router-dom';
 // Estoy importando los modulos a medida q los voy necesitando
-// import Card from './components/Card/Card.jsx';
 import Cards from './components/Cards/Cards.jsx';
-// import Search from './components/Card/SearchBar.jsx';
 import Filters from './components/Filters/Filters.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Pagination from './components/Pagination/Pagination.jsx';
-import SearchBar from './components/Search/SearchBar.jsx';
 import Search from './components/Search/Search.jsx';
 import About from './Pages/About/About';
 import Detail from './Pages/Detail/Detail';
 import Form from './Pages/Form/Form';
+import Episodes from './Pages/Episodes';
+import Location from './Pages/Location';
+
+import MyCards from './components/Cards/MyCards';
 
 // vamos a crear de nuevo la funcion App y dentro la declaración de devolucíon
 function App() {
-return (
-  <Router ><div><Navbar/></div><Routes><Route path='/' element={<Home/>}/></Routes></Router>
-  
-);
+
+//Declaración barra del navegador
+// const location=useLocation();
+
+//Declaración personaje y acceso login
+// const [characters, setCharacters]=useState([]);
+const [access, setAccess]=useState(false);
+
+useEffect(()=>{
+  !access && navigate('/');
+}, [access, navigate]);
+
+
+// Afecta la barra de navegación y el login
+const navigate=useNavigate();
+  //Declaración Login
+  const username="prueba@gmail.com";
+  const password="Password1";  
+
+function login(userData){
+  if(userData.username === username && userData.password === password){
+    setAccess(true);
+    navigate("/home");
+    document.getElementById('logOut').style.display='block';
+  }
+}
+// Afecta la barra de navegación y el login efecto 12 login 15
+
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+      {/* {location.pathname==="/"?null:<Navbar  />} */}
+      <Routes>
+      
+      <Route path="/" element={<Form login={login}  />}/>
+      
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/:id" element={<Detail />} /> */}
+      
+      <Route path="/mycards" element={<MyCards  />}/>
+
+        {/* <Route path="/characters" element={<Home />} />
+        <Route path="/characters/:id" element={<Detail />} />         */}
+
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/episodes/:id" element={<Detail />} />
+
+        <Route path="/location" element={<Location />} />
+        <Route path="/location/:id" element={<Detail />} />
+
+        
+            {/* <Route path="/detail/:detailId" element={<Detail />}/> */}
+            <Route path="/about" element={<About />}/>
+      </Routes>
+    </Router>
+  );
 }
 
 // le quitamos el function App a esta parte del codio y lo vamos a convertir en const Home
@@ -56,77 +112,62 @@ const Home=()=>{
     })();
   }, [api]);
 
-  //Declaración personaje y acceso login
-  const [characters, setCharacters]=useState([]);
-  const [access, setAccess]=useState(false);
 
-  //Declaración Login
-const username="prueba@gmail.com";
-const password="Password1";
 
-//Declaración barra del navegador
-const location=useLocation();
-const navigate=useNavigate();
 
-useEffect(()=>{
-  !access && navigate('/ ');
-}, [access]);
 
-function login(userData){
-  if(userData.username === username && userData.password === password){
-    setAccess(true);
-    navigate("/home");
-    document.getElementById('logOut').style.display='block';
-  }
-}
+
 
 //Función fetch barra busqueda en search.jsx
-    function onSearch(character) {
-      fetch(`https://rickandmortyapi.com/api/character/${character}`)
-         .then((response) => response.json())
-         .then((data) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               window.alert('No hay personajes con ese ID');
-            }
-         });
-   }
+  //   function onSearch(character) {
+  //     fetch(`https://rickandmortyapi.com/api/character/${character}`)
+  //        .then((response) => response.json())
+  //        .then((data) => {
+  //           if (data.name) {
+  //              setCharacters((oldChars) => [...oldChars, data]);
+  //           } else {
+  //              window.alert('No hay personajes con ese ID');
+  //           }
+  //        });
+  //  }
 
    
-function  onClose(id){
-  setCharacters(oldState=>oldState.filter(char=>char.id !== id));
-}
+// function  onClose(id){
+//   setCharacters(oldState=>oldState.filter(char=>char.id !== id));
+// }
 
-function hideButton(){
-  document.getElementById('logOut').style.display='none';
+// function hideButton(){     //lo puse en navbar
+//   document.getElementById('logOut').style.display='none';
+// }
+let containerTw=document.querySelector('.containerTw');
+for(var i=0;i<=400;i++){
+  let block=document.createElement('div');
+  block.classList.add('block');
+  containerTw.appendChild(block);
 }
 
   return (
     // Este es mi "return statement" elimine todo y creo desde cero style={{ padding: '25px' }}->se borro del div 
-    <div className="App text-center ubuntu">
- <Navbar/>
+    <div className="App text-center ubuntu containerTw">
+ {/* <Navbar/> Ya no usare esta Nava aqui */}
   
   <h1 className="text-center ubuntu my-1">Aun estoy haciendo cambios!! 
   <span className='text-primary'>Gracias por entender!!</span>  </h1>     
   
-      <div className="logOff" onClick={hideButton} >
+      {/* <div className="logOff" onClick={hideButton} >  Lo pase al navBar
       <button id="logOut" onClick={()=>navigate("/")} style={{display:"none"?"none":"none"}}>LogOut</button>     
-       </div>
-<br/>
-        
+       </div> */}
 
-
-      <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/>
-      <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
+      {/* <SearchBar setPageNumber={setPageNumber} setSearch={setSearch}/> */}
+      {/* <Search setPageNumber={setPageNumber}  setSearch={setSearch}/> */}
 
 <div className="container">
   <div className="row">
-    <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/>
+    {/* <Filters setSpecies={setSpecies} setGender={setGender}setStatus={setStatus} setPageNumber={setPageNumber}/> */}
   <div className="col-8">
     <div className='row'>
 {/*Ya con el componente importado, usamos Cards para mostrar las tarjetas*/}
-<Cards results={results}/>
+{/* <Cards results={results}/> */}
 
     </div>
   </div>
@@ -134,24 +175,25 @@ function hideButton(){
 
 </div>
       
-<div>
+{/* <div>
 {location.pathname==="/"?null:<Navbar onSearch={onSearch} />}
     <Routes>
       <Route path="/" element={<Form login={login}  />}></Route>
-      {/* <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/> */}
-      <Route path="/about" element={<About />}/>
-      <Route path="/detail/:detailId" element={<Detail />}/>
+      <Route path="/home" element={<Cards characters={characters} onClose={onClose} />}/>
+
+      <Route path="/about" element={<About />}/>      //ya lo tengo
+      <Route path="/detail/:detailId" element={<Detail />}/>    //ya lo tengo
     </Routes>    
-    </div>
+    </div> */}
         
      
-<Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+{/* <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/> */}
 
 
         
  
 {/* codigo nuevo */}
-<h1 className="text-center mb-3">Personajes{/* Personajes */}</h1>
+<h1 className="text-center mb-4">Personajes{/* Personajes */}</h1>
 {/* creamos el componente de Barra busqueda */}
  <Search setPageNumber={setPageNumber}  setSearch={setSearch}/>
   <div className="container">
@@ -160,9 +202,9 @@ function hideButton(){
       {/* dentro del filters agregaremos datos q llamamos desde el componente */}
       <Filters setSpecies={setSpecies}setGender={setGender} setStatus={setStatus} setPageNumber={setPageNumber}/>
       {/* </div> */}
-          <div className="col-8">
+          <div className="col-lg-8 col-12">
               <div className="row">{/*Componente tarjeta sera ubicado aquí */}
-              <Cards results={results}/>
+              <Cards pages="/characters/" results={results}/>
   </div>
     <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
       </div>          {/* 1 */}
@@ -171,6 +213,6 @@ function hideButton(){
     </div>          //4
   );
 
-}
+};
 
 export default App;
