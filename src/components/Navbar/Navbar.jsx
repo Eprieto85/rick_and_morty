@@ -21,6 +21,7 @@
 import React from 'react'
 import { NavLink,Link } from "react-router-dom";//,useNavigate
 import '../../App.css';
+import './Navbar.css'
 
 const Navbar = () => {
   // const navigate=useNavigate();
@@ -32,8 +33,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light mb-4" onClick={hideButton}>
   <div className="container">
-  
-  <img className='imgHead' src='https://1000marcas.net/wp-content/uploads/2022/04/Rick-and-Morty.png' alt="logo-Rick&Morty" />
+  <h1 className="nav-logo-img" >
+  <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/128px-Rick_and_Morty.svg.png' alt="logo-Rick&Morty"/>
+  </h1>
   <Link to="/" className="fs-3 ubuntu navbar-brand">Rick & <span className='text-primary'>Morty</span>  </Link>     
   
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

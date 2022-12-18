@@ -1,0 +1,161 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    /* padding: 0 30px; */
+    background:linear-gradient(90deg, rgba(5, 52, 1, 0.814)0%, rgba(27, 3, 74, 0.837)100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    width:95%;
+    height: 80px;
+    border-radius: 13px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    /*  */
+    }
+    
+    /* .nav-container {
+        border: 1px solid #222;
+    } */
+    .nav-logo-img {
+    color: #fff; 
+    justify-self: start;
+    margin-left: 0.5%;
+    cursor: pointer;
+    /*  */
+    height: 95%;
+    /* border: 1px solid #222; */
+    }
+    /* .fa-react {     lo puedo desactivar 
+        margin-left: 0.5rem;     lo puedo desactivar 
+        font-size: 1.6rem;
+    } */
+    .nav-menu {
+        display:grid;
+        grid-template-columns: repeat(6,auto);
+        /* border: 1px solid rgb(155, 6, 6); me sirvio de guia para ver las posiciones*/
+        gap: 10px;
+        height: 100%;
+        list-style: none;
+        align-items: center;   /* coloq tmp*/
+        text-align: center;
+        width: 83%; /* quite tmp*/
+        justify-content: end;   /* coloq tmp*/
+        /* margin-right: 2rem; quite tmp */
+    }
+    .nav-link {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.4rem 1rem;   /*cambie de 0.5rem a 0.4*/
+        /*height: 100%;    agregados validar */
+        border-bottom: 3px solid transparent;       /* agregados validar */
+        white-space: nowrap;
+    }
+    .nav-item:after{
+        content: "";
+        display: block;
+        height: 3px;
+        width: 0;
+        background: transparent;
+        transition: width .7s ease, background-color 0.5s ease;
+    }
+    .nav-item:hover:after{
+    width: 100%;
+    background: #0b5ed7;
+    }
+    .nav-item .active {
+        border:1px solid #0b5ed7;
+        font-weight: bold;
+        color:#8ddc60 !important;
+    }
+    button{/* caracteristicas q agregue */
+        border: 2px solid rgb(12, 51, 2);     /* lo use como guia */
+        background: rgba(22, 191, 7, 0.652);
+        border-radius: 5px;
+    }
+    .nav-btn {
+        /* width: 100%; */
+        line-height: 30px;
+        margin-right: 1rem;
+        /* border: 1px solid #222;     lo use como guia */
+    }
+    .nav-btn:hover{
+        background: rgb(132, 156, 17);
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+        color: #fff;
+    }
+    .nav-item:hover{
+        background: rgb(95, 95, 206);
+        border-radius: 4px;
+        transition: all 0.2s ease-in-out;
+        color: #fff;
+    }
+    .nav-icon {
+        display: none;
+    }
+    @media screen and (max-width: 576px){/*960px */
+    .navbar{
+    /* display: flex; */
+    padding: 20px;  /* padding: 20px; */
+    position: relative;
+        /*  */
+    }   
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: rgba(38, 4, 41, 0.666);
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+        backdrop-filter: blur(4px);
+        border-radius: 13px;
+        width: 100%;
+        height: auto;
+        position: absolute; /* probablemente quitar*/
+        top: 0;
+        left: -110%;
+        align-items: stretch;
+        padding: 80px 0 30px 0;
+        margin: 0;
+        transition: all 0.5s ease;
+        z-index: -1;
+    }
+    .nav-menu.active {
+        left: 0%;
+        opacity: 1;
+        transition: all 0.5s ease;
+            /* z-index: 1; */
+        }
+    .nav-link {
+        display: block;
+        widows: 100%;
+        padding: 0.7rem 0;
+    }
+    .nav-link:hover{
+     background: #08a971b0;
+     backdrop-filter: blur(20px);
+    }
+    .nav-icon {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        transition: translate (-100%,60%);
+        font-size: 1.8rem;
+        cursor:pointer;
+        color: #5986cace;
+        /*  */
+     /* border: 1px solid #222;     lo use como guia    */
+    }
+    button {
+        width: 100%;
+        margin: 2%;
+        display: block;
+        /* widows: 100%; */
+        padding: 0.7rem 0;
+        /* border: 1px solid #222;     lo use como guia */
+    }
+    }
