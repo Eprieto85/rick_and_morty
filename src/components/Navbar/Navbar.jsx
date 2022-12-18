@@ -85,14 +85,13 @@ const logout=()=>{
     <li className='nav-item'><NavLink to="/characters" activeClassName="active" className="nav-link" onClick={handleClick}>Characters  </NavLink></li>
     <li className='nav-item'><NavLink to="/episodes"   activeClassName="active" className="nav-link" onClick={handleClick}>Episodes    </NavLink></li>
     <li className='nav-item'><NavLink to="/location"   activeClassName="active" className="nav-link" onClick={handleClick}>Location    </NavLink></li>
+    <li className='nav-item'><NavLink to="/login"      activeClassName="active" className="nav-link" onClick={handleClick}>Login       </NavLink></li>
     <li className='nav-item'><NavLink to="/about"      activeClassName="active" className="nav-link" onClick={handleClick}>About       </NavLink></li>
     <li className='nav-btn'><button  className="nav-link" onClick={logout}>LogOut</button></li>
 </ul>
-
   <div className="nav-icon" onClick={handleClick}>
     <i className={click?"fas fa-times":"fas fa-bars"}></i>
 </div>
-
 </nav>
 </>
   )
