@@ -5,7 +5,7 @@
     align-items: center;
     font-size: 1.2rem;
     /* padding: 0 30px; */
-    background:linear-gradient(90deg, rgba(5, 52, 1, 0.814)0%, rgba(27, 3, 74, 0.837)100%);
+    background:linear-gradient(90deg, rgb(15, 107, 7)0%, rgb(51, 7, 139)100%);
     box-shadow: 0 5px 15px rgba(0,0,0,0.25);
     width:95%;
     height: 80px;
@@ -15,6 +15,7 @@
     left: 50%;
     transform: translate(-50%);
     /*  */
+    z-index: 1;     /* Me sirvio para dejar la barra encima, siempre */
     }
     
     /* .nav-container {
@@ -109,7 +110,7 @@
         flex-direction: column;
         justify-content: flex-start;
         background: rgba(38, 4, 41, 0.666);
-        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+        box-shadow: 0 8px 32px 0 rgba(65, 75, 218, 0.37);
         backdrop-filter: blur(4px);
         border-radius: 13px;
         width: 100%;
@@ -146,7 +147,7 @@
         transition: translate (-100%,60%);
         font-size: 1.8rem;
         cursor:pointer;
-        color: #5986cace;
+        color: #91aed8ce;
         /*  */
      /* border: 1px solid #222;     lo use como guia    */
     }

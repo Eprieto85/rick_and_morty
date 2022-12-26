@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    /* // overflow: hidden;   oculta el deslizador derecho */
+}
+body{
+  margin: 0;       /* colq 8% para ir ordenando los espacios de la navbar  */
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  z-index: -1;
+}
+.ubuntu {
+  font-family: "Ubuntu";
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

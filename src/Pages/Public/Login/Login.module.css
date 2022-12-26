@@ -1,26 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: 'Poppins', sans-serif; */
-}
-body{
-    overflow: hidden;
-    /* background: linear-gradient(to bottom, #f1f4f9,#dff1ff); este fondo me tapa los fondos q quiere poner */
-}
 section{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;   /* estaba en 100vh */
+    min-height: 70vh;   /* estaba en 100vh ubicación despues de la navbar 70vh*/
     /* background: linear-gradient(to bottom, #f1f4f9,#dff1ff);   Lo pase al Body*/
-    
 }
 section .color{
 position:absolute;
-filter: blur(150px);
+filter: blur(150px) !important;
 }
 section .color:nth-child(1){
     top:         -56%;                 /* top:-350px toma por encima de la pagina movi a 118px; 18.9%*/
@@ -69,35 +57,34 @@ section .color:nth-child(3){
         transform: translateY(40px);
     }
 }
-.box .square:nth-child(1){
-    top:    -50px;
+.box .square:nth-child(1){           /* esta encima a la derecha */
+    top:    20px;
     right:  -60px;
     width:  100px;
     height: 100px;
 }
-.box .square:nth-child(2){
+.box .square:nth-child(2){           /* esta encima a la izquierda */
     top:    150px;
     left:  -100px;
     width:  120px;
     height: 120px;
     z-index: 2;
 }
-.box .square:nth-child(3){
-    bottom:  50px;
+.box .square:nth-child(3){           /* esta abajo a la der */
+    bottom:  -10px;
     right:  -60px;
     width:   80px;
     height:  80px;
     z-index: 2;
 }
-.box .square:nth-child(4){
-    bottom: -80px;
+.box .square:nth-child(4){           /* esta abajo a la cent */
+    bottom: -20px;
     left:   100px;
     width:   50px;
     height:  50px;
 }
-
-.box .square:nth-child(5){
-    top:    10px;      /* estaba en -80 */
+.box .square:nth-child(5){      /* esta encima al centro */
+    top:    -10px;      /* estaba en -80 */
     left:   140px;
     width:   60px;
     height:  60px;
@@ -123,6 +110,9 @@ section .color:nth-child(3){
     height:     10%;    /*esta en 100%*/
     padding:     30px;    /*esta en 40px*/
     z-index:1;           /*lo puse pero no afecta mucho la posicón encima de*/
+}
+.form h1{
+    color: #fff;
 }
 .form h2{
     position: relative;
@@ -161,7 +151,6 @@ border:1px solid rgba(255,255,255,0.5);
     color: #fff;
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
-
 .form .inputBox input::placeholder{
     color:  #fff;
 }
@@ -184,4 +173,10 @@ background: #fff;
 }
 
 @media (max-width: 576px){
+    section{
+        display: flex;
+        min-height: 60vh;
+        position: absolute;
+        z-index: -2;
+    }   
 }
