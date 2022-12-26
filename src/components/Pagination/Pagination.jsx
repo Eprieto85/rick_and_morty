@@ -14,24 +14,6 @@ useEffect(()=>{
   window.addEventListener('resize', updateDimensions);
   return ()=>window.removeEventListener('resize', updateDimensions);
 },[]);
-
-
-//Ya no se usara esta forma de paginación
-  // let next=()=>{   // con este codigo cambiamos la paginacion
-    //     setPageNumber((x)=>x+1)
-    // };
-    // let prev=()=>{
-    //     if(pageNumber===1)return;
-    //     setPageNumber((x)=>x-1)
-    // };
-
-//   return (      //Estos div vienen de la paginación q ya no se usara
-//   // <div className='container d-flex justify-content-center gap-5 my-5'>
-//   //   <div onClick={prev} className="button btn btn-primary">Prev</div>
-//   //   <div onClick={next} className="button btn btn-primary">Next</div>
-//   // </div>
-//   );
-
 return (
 <>
   <style jsx>

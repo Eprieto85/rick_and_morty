@@ -20,9 +20,9 @@ const Search = ({setSearch,setPageNumber})=>{                    //nuevo
                 className={styles.input}
                 type="text"   />
             <button 
-            onClick={searchBtn}className={`${styles.btn} btn btn-primary fs-5`}>Buscar Search</button>
+            onClick={searchBtn}className={`${styles.btn} btn btn-primary fs-5`}>Buscar</button>
        </form>
     );
 };    
  
- export default Search;    //nuevo
+export default Search;    //nuevo

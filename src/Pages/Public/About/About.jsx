@@ -1,8 +1,10 @@
-export default function About(){
+const About = () => {
     return (
-        <div>
-            <h1 className="text-center ubuntu my-1"> Prueba Prieto</h1>
-            <p className="text-center ubuntu">Esta es una prueba de desarrollo</p>
-        </div>
-    );
-}
+      <div>
+  <h1 className="text-center ubuntu my-1"> Prueba Prieto</h1>
+  <p className="text-center ubuntu">Esta es una prueba de desarrollo</p>
+      </div>
+    )
+  }
+  
+  export default About
