@@ -1,0 +1,141 @@
+// Vamos a usar Scss para dar estilo a nuestras tarjetas
+$radius: 20px;
+
+.card {
+    width: 57.5%;     // width: 570px; 52%
+    height: 43%;      // height: 270px;
+    background: rgba(160, 7, 184, 0.798);
+    box-shadow: 0 1px 25px rgba(73, 154, 7, 0.791);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    padding: 1% 1.2%;// padding: 12px 10px;
+    // 
+    border-radius: $radius;
+}
+.imag{
+    width: 39%;       // width: 210px;
+    height: 87%;      // height: 210px;
+    position: relative;
+    float: left;
+    background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+  40%, #e5e5e5 48%);
+  border-radius: 50%;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: efecto89 2s infinite;
+}
+.badge{
+    top:85%; 
+    left: 14.5%;
+    // font-size: 17px;
+}
+.title {
+    width: 59.4%;   //90px *4   width: 320px;
+    height: 12.4%;  //10px *3    height: 30px
+    position: relative;
+    padding: .8%;  //       padding: 5px;
+    text-align: center;
+    color: #222;
+    float: right;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+    40%, #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: efecto89 2s infinite;
+}
+.description {
+    width: 59.4%;   //90px *4   width: 320px; 59.4%;
+    height: 83%;   //47px *4  height: 208px
+    padding: .95%;  //       padding: 5px;
+
+  color: #222;
+  position: relative;
+  float: right;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 
+  40%, #e5e5e5 48%);
+  margin-top: 2%;  //   margin-top: 10px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: efecto89 2s infinite;
+}
+
+/* DivTable.com */
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	border: 0px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+
+
+@keyframes efecto89 {
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  @media screen and (max-width: 576px){/*960px */
+// .btn{
+//     margin-bottom:3%;
+// }    
+.card {
+    top: 59%;
+    // margin: 0;
+    width: 90%;    
+    height: 75%;      // height: 270px;
+        
+    }
+    .imag{
+    width: 90%;
+    height: 50%;      // height: 210px;
+    float: top;
+    top:1%; 
+    left: 5%;
+    }
+.badge{
+    top:52%; 
+    right: 33%;
+    left: 33%;
+    }
+.title {
+    width: 95%;   //90px *4   width: 320px;
+    height: 6.5%;  //10px *3    height: 30px
+    top: 8%;
+    right: 2.5%;
+        // float: center;
+}
+.description {
+    width: 95%;   //90px *4   width: 320px; 59.4%;
+    height: 33%;   //47px *4  height: 208px
+    // padding: 2%;  //       padding: 5px;
+    right: 2.5%;
+    top: 8%;
+    }   
+}
