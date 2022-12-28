@@ -3,7 +3,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;   /* estaba en 100vh ubicación despues de la navbar 70vh*/
+    min-height: 100%;   /* estaba en 100vh ubicación despues de la navbar 70vh*/
     /* background: linear-gradient(to bottom, #f1f4f9,#dff1ff);   Lo pase al Body*/
 }
 section .color{
@@ -18,7 +18,7 @@ section .color:nth-child(1){
     z-index: -1; 
 }
 section .color:nth-child(2){
-    bottom:     -24%;                 /* bottom:-150px toma por encima de la pagina -25%*/
+    bottom:     1%;                 /* bottom:-150px toma por encima de la pagina -25%*/
     left:         9%;                 /* left:100px; toma por encima de la pagina*/
     width:     45.3%;                 /* width:500px; toma por encima de la pagina*/
     height:      80%;                 /* height:500px; toma por encima de la pagina*/
@@ -91,8 +91,8 @@ section .color:nth-child(3){
 }
 .containerLog{ 
     position: relative;
-    width:      400px;
-    min-height:   400px;      /* estaba en 400 */
+    width:      132%;      /* estaba en 400px */
+    min-height:   100%;      /* estaba en 400 */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     display: flex;
@@ -172,11 +172,18 @@ background: #fff;
     margin-top: 3px;
 }
 
+
 @media (max-width: 576px){
     section{
-        display: flex;
-        min-height: 60vh;
-        position: absolute;
+ min-width:100%;
+ min-height: 100%;
         z-index: -2;
     }   
+.containerLog{ 
+    width:  100%;
+    min-height: 100%;      /* estaba en 400 */
+    }
+.form{
+    min-width: 100%;
+}
 }

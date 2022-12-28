@@ -1,10 +1,31 @@
 import styles from './Login.module.css';
 import { validation } from "../../../Components/Auth/validation";
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useEffect,useContext,useState } from 'react'; //useEffect para el sweet Alert
+import Swal from 'sweetalert2'   //dice q use Swal yo use msjLog
 import Context from '../../../Components/Context/Context';
 
 const Login = (props) => {
+// este alert, es solo para indicar al usuario como logearse
+
+useEffect(()=>{
+  msjLog();
+},[]);
+
+const msjLog=()=>{
+  Swal.fire({
+    icon:'info',
+    title:'Bienvenido al Login',
+        // text:'Esta es una plantilla del login. Para ingresar, el usuario es - prueba@gmail.com - y contraseña - Password1 - Escribir exactamente igual',
+    html:'Esta es una plantilla del login. Para ingresar<p><p><b>Usuario:</b> prueba@gmail.com<br><b>Contraseña: </b>Password1',
+footer:`<b>Hoy es:&nbsp;</b> ${new Date().toLocaleDateString()}`,
+        buttons:'Aceptar',
+        timer: "50000"
+      });
+    }
+// este alert, es solo para indicar al usuario como logearse
+
+
 // intento de agregar la validación de login
 const [userData,setUserData]=useState({
 // setea los datos q vienen para validar del login
@@ -49,7 +70,11 @@ const passWor="Password1";
     navegacion('/', {replace:true})
   }
   }
+
   
+  
+
+
   return (
     <>
     <section onSubmit={handleSubmit}>
@@ -66,7 +91,7 @@ const passWor="Password1";
 <div className={`${styles.square}`} style={{"--i":"4;"}}></div>
 
 
-    <div className={`d-flex mb-1 ${styles.containerLog}`}>
+    <div className={` ${styles.containerLog}`}>
       <div className={`${styles.form}`}>
         <form>
             <h1 className="ubuntu mb-1">Iniciar Sesión</h1>
@@ -89,8 +114,9 @@ const passWor="Password1";
         <input type="submit" onClick={login} value="Login"/>    {/* se activa el evento login */}
       {/* <button >Entrar</button> */}
         </div>
-        <p className={`ubuntu  mb-1 ${styles.forget}`}> Forgot Password ? <a href="#h">Click Here</a></p>
-        <p className={`ubuntu  mb-1 ${styles.forget}`}> Don't have an account ? <a href="#h">Sign Up</a></p>
+        <p className={`ubuntu  mb-1 ${styles.forget}`}> Olvidaste contraseña? <a href="#h">Click Aquí</a></p>
+        <p className={`ubuntu  mb-1 ${styles.forget}`}> No tienes cuenta? <a href="usuario" >Registrate</a></p> 
+        {/* onClick={()=>msjLog()} */}
       </form>
       </div>
         </div>

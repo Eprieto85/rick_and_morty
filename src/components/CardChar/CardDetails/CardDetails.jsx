@@ -19,9 +19,9 @@ const CardDetails = () => {
 }, [api]);
 
   return (
-    <div className='container d-flex justify-content-center mb-5'>
+    <div className='container'>
           
-  <button onClick={()=>navigate("/")} className="btn btn-primary ">Volver</button>
+  <button onClick={()=>navigate("/")} className="btn">Volver</button>
 
   <div className={`${styles.card}`}>
     <img className={`${styles.imag}`} src={image} alt="" />
