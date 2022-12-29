@@ -19,13 +19,13 @@ const CardDetails = () => {
 }, [api]);
 
   return (
-    <div className='container'>
+    <div className='container '>
           
-  <button onClick={()=>navigate("/")} className="btn mb-1">Volver</button>
-
+  <button onClick={()=>navigate("/")} className={`${styles.btn}`}>Volver</button>
+<p><br></br></p>
   <div className={`${styles.card}`}>
     <img className={`${styles.imag}`} src={image} alt="" />
-    <div className={`${styles.title}`}><span className='fw-bold'>NOMBRE: </span>{name}</div>
+    <div className={`${styles.title}`}><b>NOMBRE: </b>{name}</div>
 
 
              {(()=>{
@@ -46,7 +46,7 @@ const CardDetails = () => {
 <div className={`${styles.divTableBody}`}>
 <div className={`${styles.divTableRow}`}>
 <div className={`${styles.divTableCell}`}><div>
-<div><span className='fw-bold'>GENERO:</span></div>
+<div><b>GENERO:</b></div>
 </div>
 </div>
 <div className={`${styles.divTableCell}`}>
