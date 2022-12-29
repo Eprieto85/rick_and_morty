@@ -21,7 +21,7 @@ const CardDetails = () => {
   return (
     <div className='container'>
           
-  <button onClick={()=>navigate("/")} className="btn">Volver</button>
+  <button onClick={()=>navigate("/")} className="btn mb-1">Volver</button>
 
   <div className={`${styles.card}`}>
     <img className={`${styles.imag}`} src={image} alt="" />
