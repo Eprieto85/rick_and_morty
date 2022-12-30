@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './Dashboard.css';
 
 const Dashboard = () => {
   return (
    
-    <div className="d-flex ubuntu justify-content-center fs-5 mb-4">
+    <div className="conbg d-flex ubuntu justify-content-center fs-5 mb-4">
     {/* // Este es mi "return statement" elimine todo y creo desde cero style={{ padding: '25px' }}->se borro del div  */}
 <div className="App text-center ubuntu">
 Gracias por llegar hasta aquí!!
@@ -13,9 +14,9 @@ Gracias por llegar hasta aquí!!
 
 <span className='text-primary'>Gracias por entender!!</span>
 
-<div className="container">
+<div className="container ">
 <div className='row'>
-<div className="col-2">
+<div className="col-2 recPub">
 <a title="Curso Barista" href='https://go.hotmart.com/L77323984K'><img src='http://drive.google.com/uc?export=view&id=1eOkD4ky_w89YJtC2SfwaYHhIQAGvHSpU' width="90%" height="70%" alt="curso-barista" /></a>
 dentro del filters
 
