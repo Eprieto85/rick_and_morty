@@ -1,0 +1,19 @@
+.frame{
+    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height:84.5%;
+    width:100%;
+    position:absolute;
+    top:15.5%;
+    left:0px;
+    right:0px;
+    bottom:0px
+}
+@media screen and (max-width: 576px){/*960px */
+
+.frame {
+    top: 14%;
+    height:85.9%;
+    }
+}

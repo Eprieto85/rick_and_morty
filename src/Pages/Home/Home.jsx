@@ -17,7 +17,7 @@ const Home = () => {
 dentro del filters
 </div>
  <div className="col-lg-8 flex-wrap">
-     <div className="row">este un area publica, donde todos tienen acceso a enlaces segun la preferencia del cliente. En este ejemplo son cartas sobre la serie Rick and Morty, entonces podras ver las tarjetas, buscar las que te llamen la atención en el enlace Cards
+     <div className="row"> Inicialmente queria poner opción para elegir los idiomas de su preferencia, pero al ser una base de datos externa, toma mucho tiempo, y mi objetivo en este proyecto es mostrar algunos diseños en cuanto a botones, lenguaje puro,
      <br/><br/>
      <p>En personajes puede seleccionar tus favoritas, en espisodios puedes saber que personajes aparecenen cada episodio, </p> 
      <br/>
