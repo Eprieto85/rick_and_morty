@@ -20,9 +20,10 @@ const CardDetails = () => {
 
   return (
     <div className='container '>
-          
-  <button onClick={()=>navigate("/")} className={`${styles.btn}`}>Volver</button>
-<p><br></br></p>
+      <div className="d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5">
+  <button onClick={()=>navigate("/")} className={`${styles.btnV}`}>Volver</button>
+      </div>
+
   <div className={`${styles.card}`}>
     <img className={`${styles.imag}`} src={image} alt="" />
     <div className={`${styles.title}`}><b>NOMBRE: </b>{name}</div>

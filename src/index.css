@@ -1,24 +1,13 @@
-*{    /* Fondo Oky */
-  margin: 0;
-  padding: 0;
-  /* overflow: hidden;   oculta el deslizador derecho */
-}
-body {    /* Fondo Oky */
-  margin:0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-}
-.main {    /* Fondo Oky */
+/* .main {    Fondo Oky - parece q no afecta nada*/
+  /* width: 100%; */
+  /* height: 100%; */
+/* } */
+video {    /* Fondo Oky */
+  object-fit: cover;
   width: 100%;
   height: 100%;
-}
-video {    /* Fondo Oky */
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   z-index: -1;
 }
 .imgBg {
@@ -60,7 +49,11 @@ video {    /* Fondo Oky */
 video {
       display: none;
   }
-  .imgBg {
+  body {
+    background: url('./Components/assets/images/rmbg_gif.gif');
+    background-size: cover;
+  }
+  /* .imgBg {
       display: block;
       position: fixed;
       top: 0;
@@ -68,7 +61,7 @@ video {
       height: 100%;
       object-fit: cover;
       z-index: -1;
-  }
+  } */
 /* body {
   background: url('../src/Components/assets/images/rmbg_gif.gif');
       position: static !important;

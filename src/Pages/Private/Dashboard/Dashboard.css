@@ -1,0 +1,14 @@
+
+.conbg{
+       width: 100%;
+    height: 100%;
+    background-image: linear-gradient(163deg,#3700ff61 0%, #42cf405d 100%);
+    transition: all .3s;    
+    border: 2px solid rgb(192, 34, 34);
+}
+.recPub {
+    border: 2px solid #222;
+}
+.cardPub {
+    border: 5px solid rgb(12, 101, 22);
+}
