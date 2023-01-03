@@ -63,7 +63,7 @@ Vamos a crear 3 componenetes, **Personaje**, **Tarjetas** y **Barra de Busqueda*
 
 Listo! Primer app hecha con React 👏🏼🚀
 
-<!-- 
+
 
 ### 2. Filtrado de personajes
 
@@ -109,4 +109,4 @@ Vamos a implementar una nueva funcionalidad: al hacer clic sobre la tarjeta de u
 ## Espero que os guste!!
 
 ![Rick dancing](https://media2.giphy.com/media/35nU79vBbeOm4/giphy.gif?cid=ecf05e473155d3ac5d165524e2b17b11448c7f743f71c54a&rid=giphy.gif)
-Footer -->
+Footer

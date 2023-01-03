@@ -1,11 +1,14 @@
+import imgIng from '../../../Components/assets/videoBG/videoIngles.gif';
+import './About.css';
+
 const About = () => {
     return (
     
       <div className="d-flex ubuntu justify-content-center fs-5 mb-4 conbg">
   <div className="App text-center ubuntu ">
   
-  <h1 className="text-center mb-4">Sobre mí!! {/* Personajes */}</h1>
-  {/* <h1 className="text-center ubuntu my-1"> . </h1> */}
+  <h1 className="text-center mb-4">Sobre mí!! </h1>
+
   <p></p>
   <div className="container">
   <div className='row'>
@@ -13,7 +16,7 @@ const About = () => {
   <div className="col-2 cardPub ">
   
     <a title="Curso Ingles" href='./Hotmart'>
-    <img className='cardImg' src="{imgIng}" alt="" />
+    <img className='cardImg' src={imgIng} alt="" />
       </a>
   
   <div className="card-info"><p className="text-title">Curso Ingles RAIO</p><p className="text-body"> Esta será la última inversión en un curso de <b>Inglés</b> que hagas en tu vida. Tendrás acceso de por vida, para que vayas a tu propio ritmo y horario y, al terminar el programa, recibirás un certificado firmado. </p> <span className='text-primary'>Descuento haciendo clic en el carrito</span></div>
@@ -36,12 +39,12 @@ const About = () => {
     <h1 align="center">Hola 👋, Soy Edisson Prieto</h1><p/>
 <h3 align="center">Un apasionado desarrollador Full-Stack de Colombia </h3>
 <p/>
-<div align="left">- 🔭 Actualmente estoy trabajando en un <b>Proyecto Personal</b></div>
-<div align="left">- 👯 Estoy buscando colaborar en <b>soy Henry bootcamp</b></div>
-<div align="left">- 💬 Preguntame sobre <b>Html 5, React, CSS</b></div>
-<div align="left">- 📫 Como llegar a mi <b>edissonprietog@gmail.com</b></div>
+<div align="left">- 🔭 Actualmente estoy trabajando en un <b className='text-success'>Proyecto Personal</b></div>
+<div align="left">- 👯 Estoy buscando colaborar en <b className='text-success'>soy Henry bootcamp</b></div>
+<div align="left">- 💬 Preguntame sobre <b className='text-success'>Html 5, React, CSS</b></div>
+<div align="left">- 📫 Como llegar a mi <b className='text-success'>edissonprietog@gmail.com</b></div>
 
-<div align="left">- 📄 Conoce mis experiencias <a href="https://www.linkedin.com/in/eprietog/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/eprietog/</a></div>
+<div align="left">- 📄 Conoce mis experiencias <a href="https://www.linkedin.com/in/eprietog/"   target="_blank" rel="noreferrer">https://www.linkedin.com/in/eprietog/</a></div>
 <p/>
 <h3 align="left">Conectate conmigo:</h3>
 <p align="left">
