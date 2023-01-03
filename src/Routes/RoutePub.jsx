@@ -7,6 +7,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import RoutePriv from "./RoutePriv";
 import Public from "./Public";
 import Private from "./Private";
+import Hotmart from "../Pages/Public/Hotmart/Hotmart";
 
 const RoutePub = () => {
   return (
@@ -19,6 +20,8 @@ const RoutePub = () => {
               <Route path="home" element={<Public><Home/></Public>}/>
               <Route path="about" element={<Public><About/></Public>}/>
               <Route path="login" element={<Public><Login/></Public>}/>
+
+              <Route path="hotmart" element={<Public><Hotmart/></Public>}/>
 
               <Route path="/*" element={<Private><RoutePriv/></Private>}/>
           {/* <Switch/> */}  
